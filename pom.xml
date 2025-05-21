@@ -97,13 +97,13 @@
 	    <repository>
 	      <id>nexus</id>
 	      <name>Mithun Technologies Releases Nexus Repository</name>
-	      <url>http://172.31.9.121:9980/jayanth/repository/canara-release/</url>
+	      <url>http://13.201.191.132:9980/jayanth/repository/canara-release/</url>
 	    </repository>
 	    
 	    <snapshotRepository>
 	      <id>nexus</id>
 	      <name>Mithun Technologies Snapshot Nexus Repository </name>
-	      <url>http://172.31.9.121:9980/jayanth/repository/canara-snapshot/</url>
+	      <url>http://13.201.191.132:9980/jayanth/repository/canara-snapshot/</url>
 	    </snapshotRepository>
 	    
 	</distributionManagement>
