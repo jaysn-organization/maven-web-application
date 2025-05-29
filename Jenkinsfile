@@ -6,7 +6,7 @@ node {
     echo "The Build number is : ${env.BUILD_NUMBER}"
     properties([buildDiscarder(logRotator(artifactDaysToKeepStr: '', artifactNumToKeepStr: '5', daysToKeepStr: '', numToKeepStr: '5')), [$class: 'RebuildSettings', autoRebuild: false, rebuildDisabled: false], pipelineTriggers([pollSCM('* * * * *')])])
     stage ('CheckoutCode'){
-       git branch: 'development', credentialsId: 'c0fb0619-7292-4e0b-a629-42582dca4d4a', url: 'https://github.com/jaysn-organization/maven-web-application.git'
+       git branch: 'development', credentialsId: 'e5751065-4938-487c-972e-a364eaffced6', url: 'https://github.com/jaysn-organization/maven-web-application.git'
     }
     stage ('Build'){
         sh "${mavenHome}/bin/mvn clean package"
@@ -18,8 +18,8 @@ node {
         sh "${mavenHome}/bin/mvn clean deploy"
     }
     stage ('DeployAppIntoTomcat'){
-        sshagent(['7c6dec6f-1730-49bd-b6e6-fc280f8ba2b6']) {
-    sh "scp -o StrictHostKeyChecking=no target/maven-web-application.war ec2-user@65.0.74.252:/opt/apache-tomcat-9.0.94/webapps/"
+        sshagent(['fccd4edc-9238-4d34-bb5b-6b567717b761']) {
+    sh "scp -o StrictHostKeyChecking=no target/maven-web-application.war ec2-user@172.31.44.231:/opt/apache-tomcat-9.0.94/webapps/"
 }
     }
 }
